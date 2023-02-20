@@ -35,6 +35,12 @@ class Student:
     def __lt__(self, other):
         return self.count_average_student_grades() < other.count_average_student_grades()
 
+    def __le__(self, other):
+        return self.count_average_student_grades() <= other.count_average_student_grades()
+
+    def __eq__(self, other):
+        return self.count_average_student_grades() == other.count_average_student_grades()
+
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
@@ -58,6 +64,12 @@ class Lecturer(Mentor):
 
     def __lt__(self, other):
         return self.count_average_lecturer_grade() < other.count_average_lecturer_grade()
+
+    def __le__(self, other):
+        return self.count_average_lecturer_grade() <= other.count_average_lecturer_grade()
+
+    def __eq__(self, other):
+        return self.count_average_lecturer_grade() == other.count_average_lecturer_grade()
 
 class Reviewer(Mentor):
     def put_mark(self, student_to_grade, course, grade):
@@ -120,10 +132,14 @@ rev.put_mark(std2, 'Best Course', 3)
 
 print(std)
 print(std2)
-print(f'{std > std2}\n')
+print(f'{std < std2}')
+print(f'{std >= std2}')
+print(f'{std == std2}\n')
 print(lect)
 print(lect2)
-print (f'{lect2 < lect}\n')
+print (f'{lect2 > lect}')
+print (f'{lect2 <= lect}')
+print (f'{lect2 == lect}\n')
 print(rev)
 print(count_students_course_average("Best Course", [std, std2]))
 print(count_students_course_average("Worst Course", [std, std2]))
